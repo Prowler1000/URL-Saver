@@ -6,22 +6,44 @@ function handleClick(e){
 }
 
 function processTabs(tabs){
-    let validArrays = []
+    let urlArray = []
     let regex = new RegExp(document.getElementById('regex-input').value);
     for (const tab of tabs){
         let url = tab.url;
         if (regex.test(url)){
-            validArrays.push(url);
+            urlArray.push(url);
         }
     }
-    for (const tab of validArrays){
-        console.log(tab);
-    }
+    writeArrayToFile(urlArray);
 }
 
 function tabsError(error){
     console.log(error);
 }
 
+function writeArrayToFile(array){
+    if (array.length === 0){
+        return;
+    }
+
+    let text = "";
+    let filename = "urls.txt";
+    for (const url of array){
+        text += url + "\n";
+    }
+
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=urt-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+    pom.click();
+}
+
 document.addEventListener("click", handleClick);
-document.getElementById("regex-input").focus();
+const input = document.getElementById("regex-input");
+input.addEventListener("keyup", function(event){
+    if (event.key === "Enter"){
+        event.preventDefault;
+        document.getElementById("save-button").click();
+    }
+});
+input.focus();
