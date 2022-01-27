@@ -7,6 +7,7 @@ function update_urls(tabs){
         urls.push(tab.url);
     }
     refined_urls = urls;
+    update_match_counter();
 }
 
 function handle_regex_update(event){
@@ -21,7 +22,7 @@ function handle_regex_update(event){
     refine_urls(event.target.value);
     prev_regex_len = event.target.value.length;
 
-    //Update number indicator
+    update_match_counter();
 }
 
 function reset_refined_urls(){
@@ -36,6 +37,10 @@ function refine_urls(regex_string){
             tmpArray.push(url);
     }
     refined_urls = tmpArray;
+}
+
+function update_match_counter(){
+    document.getElementById("match-counter").innerText = refined_urls.length;
 }
 
 function handleClick(e){
