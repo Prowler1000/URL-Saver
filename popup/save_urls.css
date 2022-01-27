@@ -1,10 +1,26 @@
 .popup-content{
     display: flex;
     flex-direction: column;
+    width: 300px;
+    height: 150px;
 }
 
 .regex-input{
-
+    margin-bottom: 10px;
+    padding: 6px;
+    font-size: 16px;
+    border-width: 0px;
+    border-color: #CCCCCC;
+    background-color: #f3f3f3;
+    color: #000000;
+    border-style: solid;
+    border-radius: 12px;
+    box-shadow: 0px 0px 3px rgba(66,66,66,.40);
+    text-shadow: 0px 0px 0px rgba(66,66,66,.0);
+}
+.regex-input:focus {
+    outline: none;
 }
 .save-button{
+    flex-grow: 1;
 }
