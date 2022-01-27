@@ -6,7 +6,7 @@
     "description": "Save open URLs that match certain criteria to file",
 
     "icons":{
-
+        "256": "icons/u.png"
     },
 
     "permissions": [
